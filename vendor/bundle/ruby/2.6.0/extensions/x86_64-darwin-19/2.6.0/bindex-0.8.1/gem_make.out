@@ -1,0 +1,15 @@
+current directory: /Users/okuyamakenta/Program/driver/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/okuyamakenta/.rbenv/versions/2.6.1/bin/ruby -I /Users/okuyamakenta/.rbenv/versions/2.6.1/lib/ruby/site_ruby/2.6.0 extconf.rb
+creating Makefile
+
+current directory: /Users/okuyamakenta/Program/driver/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20221211-73629-1hntz3p sitelibdir\=./.gem.20221211-73629-1hntz3p clean
+
+current directory: /Users/okuyamakenta/Program/driver/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20221211-73629-1hntz3p sitelibdir\=./.gem.20221211-73629-1hntz3p
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/okuyamakenta/Program/driver/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20221211-73629-1hntz3p sitelibdir\=./.gem.20221211-73629-1hntz3p install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20221211-73629-1hntz3p/skiptrace/internal

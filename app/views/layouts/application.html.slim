@@ -1,0 +1,74 @@
+doctype html
+html
+  head
+      = render template: 'layouts/_head.html.slim'
+
+  header
+      .row
+        .col-xs-3
+           = link_to "/"
+            =image_tag "rogo.png", class:"header-image"
+        .col-xs-7
+        .col-xs-2
+                /.navToggle
+                  span
+                  span
+                  span
+                  span menu
+      .row.navi
+        .col-xs-12.center.hidden-xs
+          /ul#dropmenu
+           li
+             = link_to  'トップページ', '/' , class: "col-md"
+           li
+             = link_to  '人材企業サーチ', '/lists' , :class=>"col-md"
+           li
+             = link_to  '記事一覧', '/posts' , :class=>"col-md"
+           li
+             = link_to  'よくある質問', '/faq' , :class=>"col-md"
+           li
+             = link_to  '会社概要', '/co' , :class=>"col-md"
+           li
+             = link_to  '問い合わせ', '/contact' , :class=>"col-md"
+           li
+             = link_to  '会員案内', '/contact', :class=>"col-md"
+             ul
+                 li
+                   - if user_signed_in?
+                    = link_to "マイページ", user_path(current_user)
+                   - else
+                    = link_to '相談者ログイン', new_user_session_path , :class=>"col-md"
+
+        nav.globalMenuSp
+           ul
+            li
+              = link_to  'トップページ', '/' , class: "col-md"
+            li
+              = link_to  '人材企業サーチ', '/lists' , :class=>"col-md"
+            li
+              = link_to  '記事一覧', '/posts' , :class=>"col-md"
+            li
+              = link_to  'よくある質問', '/faq' , :class=>"col-md"
+            li
+              = link_to  '会社概要', '/co' , :class=>"col-md"
+            li
+              = link_to  '問い合わせ', '/contact' , :class=>"col-md"
+            li
+              - if user_signed_in?
+               = link_to "マイページ", user_path(current_user)
+              - else
+               = link_to '相談者ログイン', new_user_session_path , :class=>"col-md"
+
+
+
+
+  body
+    p.notice
+      = notice
+    p.alert
+      = alert
+    main
+      = yield
+      h1.col-xs-8.center
+        .white
+          人材紹介一括比較見積り『Comicomi』

@@ -1,0 +1,22 @@
+- set_meta_tags noindex: true
+
+.row
+  br
+  br
+  table.company
+   tr
+     th 会社名
+     th 詳細
+     th メール送信
+   - @estimates.each do |estimate|
+    tr
+     td = estimate.co
+     td = link_to "詳細", estimate_path(estimate), class:"store"
+     - if estimate.send_mail_flag == true
+      td style="color: green" 送信済
+     - else
+      td style="color: red" 未送信
+  br
+    hr.line
+    br
+    = paginate(@estimates)
