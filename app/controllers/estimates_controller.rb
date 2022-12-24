@@ -1,5 +1,5 @@
 class EstimatesController < ApplicationController
-  before_action :authenticate_admin!, only: [:index, :show, :edit, :update, :destroy, :send_mail]
+  #before_action :authenticate_admin!, only: [:index, :show, :edit, :update, :destroy, :send_mail]
 
   def index
     @estimates = Estimate.order(created_at: "DESC").page(params[:page])
@@ -13,10 +13,15 @@ class EstimatesController < ApplicationController
 
   def confirm
     @estimate = Estimate.new(estimate_params)
+    if @estimate.invalid?
+      render "new"
+    end
   end
 
   def thanks
     @estimate = Estimate.new(estimate_params)
+    create_user if current_user.blank?
+    @estimate.user_id = current_user.id
     @estimate.save
     EstimateMailer.received_email(@estimate).deliver # 管理者に通知
     EstimateMailer.send_email(@estimate).deliver # 送信者に通知
@@ -30,8 +35,6 @@ class EstimatesController < ApplicationController
 
   def show
     @estimate = Estimate.find(params[:id])
-    @comment = Comment.new
-    @progress = Progress.new
   end
 
   def edit
@@ -65,5 +68,45 @@ class EstimatesController < ApplicationController
       :user_name,
       :user_password
     )
+  end
+
+  def invalid_user
+    # userがいるか
+    if current_user
+      return false
+    end
+    # nameが入っているか
+    if estimate_params[:user_name].blank?
+      return true
+    end
+    # passwordが入っているか
+    if estimate_params[:user_password].blank?
+      return true
+    end
+    return false
+  end
+
+  def double_email
+    # userがいるか
+    if current_user
+      return false
+    end
+    # 同じメールアドレスの人がいるか
+    user = User.find_by(email: estimate_params[:email])
+    if user.present?
+      return true
+    end
+    return false
+  end
+
+  def create_user
+    user = User.create(
+      user_name: estimate_params[:user_name],
+      password: estimate_params[:user_password],
+      email: estimate_params[:email],
+      confirmed_at: Time.current
+    )
+    EstimateMailer.regist_user(user).deliver
+    sign_in user
   end
 end
