@@ -9,8 +9,8 @@ Rails.application.configure do
   address: 'smtp3.gmoserver.jp',
   domain: 'factoru.jp',
   port: 587,
-  user_name: 'driver@factoru.jp',
-  password: '#jAmS7Vs',
+  user_name: 'reform@factoru.jp',
+  password: 'XAS&B5ua',
   authentication: 'plain',
   enable_starttls_auto: true
   }

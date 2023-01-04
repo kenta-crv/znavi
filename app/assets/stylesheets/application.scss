@@ -16,9 +16,9 @@
 
  @import "bootstrap";
 
-  $main_color: #006F13;
-  $sub_color: #006F13;
-  $asort_color: #518653;
+  $main_color: orange;
+  $sub_color: orange;
+  $asort_color: #DE6A10;
 
  body {
    width:100%;
@@ -146,7 +146,7 @@
 
                                    /*  メイン画像  */
  .back-image-app {
-   background-image: url('subbase.png');
+   background-image: url('base3.webp');
    background-size: 100%;
    background-repeat: no-repeat;
    vertical-align: middle;
@@ -698,7 +698,7 @@
       float:left;
       margin:0 20px 20px 0px;
     }
-    p{
+    h6{
       font-size:16px;
       line-height:2.0;
     }
@@ -708,7 +708,36 @@
       font-weight: bold;
       line-height: 5.5rem;
     }
+    h3.head {
+      position: relative;
+      background:$main_color;
+      line-height: 1.4;
+      padding: 0.25em 0.5em;
+      margin: 2em 0 0.5em;
+      border-radius: 0 5px 5px 5px;
+      color:white;
+      font-weight:bold;
+      font-size:18px;
+    }
 
+    h3.head:after {
+      /*タブ*/
+      position: absolute;
+      font-family: "Font Awesome 5 Free",'Quicksand','Avenir','Arial',sans-serif;
+      content: '\f00c Check';
+      background: $asort_color;
+      color: #fff;
+      left: 0px;
+      bottom: 100%;
+      border-radius: 5px 5px 0 0;
+      padding: 3px 7px 1px;
+      font-size: 0.7em;
+      line-height: 1;
+      letter-spacing: 0.05em
+    }
+    p.text{
+     font-size:13px;
+   }
  }
 
 
