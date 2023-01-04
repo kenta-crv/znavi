@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
+  include SessionHelper
   before_action :set_host
+  before_action :set_footer
+  before_action :set_search
 
   # 例外処理
 
@@ -19,11 +22,21 @@ class ApplicationController < ActionController::Base
     render template: 'errors/error_500', status: 500, layout: 'application', content_type: 'text/html'
    end
 
+   def set_search
+     @q = Column.ransack(params[:q])
+     @columns = @q.result
+     @columns = @columns.all.order(created_at: 'desc')
+   end
+
+   def set_footer
+     @columns = Column.all
+   end
+
 private
   def after_sign_in_path_for(resource)
     case resource
-    when User
-      "/" #ユーザー登録と相談を兼ねる
+    when Admin
+      "/" #先々一覧を見れるアナリティクスへ
     else
       "/"
     end
@@ -32,7 +45,7 @@ private
   #UserとStaffがありログアウト画面に推移
   def after_sign_out_path_for(resource)
     case resource
-    when User, :user, :users
+    when Admin, :admin, :admins
       "/"
     else
        super

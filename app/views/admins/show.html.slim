@@ -1,0 +1,44 @@
+br
+br
+.tops-wrapper
+    h2.headline
+      | アカウント情報
+    table.company
+      colgroup
+        col[width="40%"]
+        col[width="60%"]
+        |  　
+      tr
+        th
+          | ログインアドレス
+        td
+          = @admin.email
+    br
+    = link_to "アカウント情報編集", edit_admin_registration_path, class:"btn btn-success"
+    h2.headline
+       | 実施件数
+    table.company
+       colgroup
+         col[width="20%"]
+         col[width="20%"]
+         col[width="20%"]
+         |  　
+       tr
+         th
+           | 担当者名
+         th
+           | 本日の実施件数
+         th
+           | 今週の実施件数
+         th
+           | 今月の実施件数
+         th
+           | 総合件数
+    h2.headline
+      | メッセージルーム一覧
+    .message_room_index
+      - @rooms.each do |room|
+        - member = room.member
+        - user = room.user
+        .message_room_link style="margin-bottom: 20px;"
+          = link_to "#{member.company.first_name + "弁護士"} - #{user.user_name}", room_messages_path(uri_token: room.uri_token)

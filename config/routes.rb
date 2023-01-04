@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
-  #使用者アカウント
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    sessions: 'users/sessions'
-  }
-  resources :users, only: [:show]
 
-  root to: 'top#index' #トップページ
+    #管理者アカウント
+    devise_for :admins, controllers: {
+      registrations: 'admins/registrations',
+      sessions: 'admins/sessions'
+    }
 
-  resources :estimates do
-   collection do
-    post :confirm
-    post :thanks
-   end
-  end
+    resources :admins, only: [:show]
+
+    root to: 'columns#index' #トップページ
+
+    resources :columns
+
+    #get '*path', controller: 'application', action: 'render_404'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
