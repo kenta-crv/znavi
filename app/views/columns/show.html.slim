@@ -12,74 +12,77 @@
     .center
      - if @column.file_1?
       .image_column  = image_tag @column.file_1.url, width:"600px", alt: @column.title
+
+#review-detail
+  .body-base
+      = @column.display_content_1.html_safe
+
   br
   h2 目次
   br
-
 .main-left
+ br
  ul
     - if @column.heading_2?
      li
       = link_to  @column.display_heading_2.html_safe, "#display_heading_2"
     - if @column.heading_3?
      li
-      = link_to  @column.display_heading_3.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_3.html_safe, "#display_heading_3"
     - if @column.heading_4?
      li
-      = link_to  @column.display_heading_4.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_4.html_safe, "#display_heading_4"
     - if @column.heading_5?
      li
-      = link_to  @column.display_heading_5.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_5.html_safe, "#display_heading_5"
     - if @column.heading_6?
      li
-      = link_to  @column.display_heading_6.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_6.html_safe, "#display_heading_6"
     - if @column.heading_7?
      li
-      = link_to  @column.display_heading_7.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_7.html_safe, "#display_heading_7"
     - if @column.heading_8?
      li
-      = link_to  @column.display_heading_8.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_8.html_safe, "#display_heading_8"
     - if @column.heading_9?
      li
-      = link_to  @column.display_heading_9.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_9.html_safe, "#display_heading_9"
     - if @column.heading_10?
      li
-      = link_to  @column.display_heading_10.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_10.html_safe, "#display_heading_10"
     - if @column.heading_11?
      li
-      = link_to  @column.display_heading_11.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_11.html_safe, "#display_heading_11"
     - if @column.heading_12?
      li
-      = link_to  @column.display_heading_12.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_12.html_safe, "#display_heading_12"
     - if @column.heading_13?
      li
-      = link_to  @column.display_heading_13.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_13.html_safe, "#display_heading_13"
     - if @column.heading_14?
      li
-      = link_to  @column.display_heading_14.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_14.html_safe, "#display_heading_14"
     - if @column.heading_15?
      li
-      = link_to  @column.display_heading_15.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_15.html_safe, "#display_heading_15"
     - if @column.heading_16?
      li
-      = link_to  @column.display_heading_16.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_16.html_safe, "#display_heading_16"
     - if @column.heading_17?
      li
-      = link_to  @column.display_heading_17.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_17.html_safe, "#display_heading_17"
     - if @column.heading_18?
      li
-      = link_to  @column.display_heading_18.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_18.html_safe, "#display_heading_18"
     - if @column.heading_19?
      li
-      = link_to  @column.display_heading_19.html_safe, "#display_heading_2"
+      = link_to  @column.display_heading_19.html_safe, "#display_heading_19"
     - if @column.heading_20?
      li
-      = link_to  @column.display_heading_20.html_safe, "#display_heading_2"
-
+      = link_to  @column.display_heading_20.html_safe, "#display_heading_20"
+br
+br
 #review-detail
-  .body-base
-      = @column.display_content_1.html_safe
-
 
   .headline-first.center#display_heading_2
        = @column.display_heading_2.html_safe

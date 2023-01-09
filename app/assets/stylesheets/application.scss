@@ -854,13 +854,15 @@ ul {
   ul li {
     line-height: 2.5;
     padding: 0.5em 0;
+    font-size:20px;
   }
 
   li {
     list-style:none;
+
   }
 
-  h2 {font-size:16px; padding-left:0px;}
+  li h2 {size:20px; padding-left:0px;}
   h3 {font-size:14px; padding-left:10px;}
   h3 {font-size:12px; padding-left:20px;}
 }
